@@ -58,16 +58,32 @@
 		1945B6C82A17F01900CE4843 /* MemoMeow */ = {
 			isa = PBXGroup;
 			children = (
-				1945B6C92A17F01900CE4843 /* AppDelegate.swift */,
-				1945B6CB2A17F01900CE4843 /* SceneDelegate.swift */,
+				1945B6E12A17F1E800CE4843 /* Graphical */,
+				1945B6E02A17F1DF00CE4843 /* Supporting */,
 				1945B6CD2A17F01900CE4843 /* ViewController.swift */,
 				1945B6CF2A17F01900CE4843 /* Main.storyboard */,
-				1945B6D52A17F01B00CE4843 /* Assets.xcassets */,
-				1945B6D72A17F01B00CE4843 /* LaunchScreen.storyboard */,
 				1945B6DA2A17F01B00CE4843 /* Info.plist */,
-				1945B6D22A17F01900CE4843 /* MemoMeow.xcdatamodeld */,
 			);
 			path = MemoMeow;
+			sourceTree = "<group>";
+		};
+		1945B6E02A17F1DF00CE4843 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				1945B6CB2A17F01900CE4843 /* SceneDelegate.swift */,
+				1945B6C92A17F01900CE4843 /* AppDelegate.swift */,
+				1945B6D22A17F01900CE4843 /* MemoMeow.xcdatamodeld */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		1945B6E12A17F1E800CE4843 /* Graphical */ = {
+			isa = PBXGroup;
+			children = (
+				1945B6D52A17F01B00CE4843 /* Assets.xcassets */,
+				1945B6D72A17F01B00CE4843 /* LaunchScreen.storyboard */,
+			);
+			path = Graphical;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
