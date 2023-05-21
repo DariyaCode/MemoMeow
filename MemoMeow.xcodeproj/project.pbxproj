@@ -14,6 +14,7 @@
 		1945B6D42A17F01900CE4843 /* MemoMeow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1945B6D22A17F01900CE4843 /* MemoMeow.xcdatamodeld */; };
 		1945B6D62A17F01B00CE4843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1945B6D52A17F01B00CE4843 /* Assets.xcassets */; };
 		1945B6D92A17F01B00CE4843 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1945B6D72A17F01B00CE4843 /* LaunchScreen.storyboard */; };
+		1965BDC02A1A083D006BC911 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965BDBF2A1A083D006BC911 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1945B6D52A17F01B00CE4843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1945B6D82A17F01B00CE4843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1945B6DA2A17F01B00CE4843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1965BDBF2A1A083D006BC911 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +60,9 @@
 		1945B6C82A17F01900CE4843 /* MemoMeow */ = {
 			isa = PBXGroup;
 			children = (
+				1965BDBE2A1A081F006BC911 /* Controllers */,
 				1945B6E12A17F1E800CE4843 /* Graphical */,
 				1945B6E02A17F1DF00CE4843 /* Supporting */,
-				1945B6CD2A17F01900CE4843 /* ViewController.swift */,
 				1945B6CF2A17F01900CE4843 /* Main.storyboard */,
 				1945B6DA2A17F01B00CE4843 /* Info.plist */,
 			);
@@ -84,6 +86,15 @@
 				1945B6D72A17F01B00CE4843 /* LaunchScreen.storyboard */,
 			);
 			path = Graphical;
+			sourceTree = "<group>";
+		};
+		1965BDBE2A1A081F006BC911 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1945B6CD2A17F01900CE4843 /* ViewController.swift */,
+				1965BDBF2A1A083D006BC911 /* TableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 				1945B6CE2A17F01900CE4843 /* ViewController.swift in Sources */,
 				1945B6CA2A17F01900CE4843 /* AppDelegate.swift in Sources */,
 				1945B6CC2A17F01900CE4843 /* SceneDelegate.swift in Sources */,
+				1965BDC02A1A083D006BC911 /* TableViewController.swift in Sources */,
 				1945B6D42A17F01900CE4843 /* MemoMeow.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
