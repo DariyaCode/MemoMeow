@@ -23,9 +23,45 @@ class ViewController: UIViewController {
         
         let taskName = textfield.text!
         
-        let arrayItems = [taskName]
+        var newTask = TaskItem()
         
-        defaults.set(arrayItems, forKey: "taskArray")
+        newTask.name = taskName
+        
+        var taskArray: [TaskItem] = []
+        
+        if let array = defaults.array(forKey: "taskItemArray") {
+            taskArray = array as! [TaskItem]
+            
+            taskArray.append(newTask)
+            
+            defaults.set(taskArray, forKey: "taskItemArray")
+        } else {
+            let array = [newTask]
+            
+            defaults.set(taskArray, forKey: "taskItemArray")
+        }
+        
+        do{
+            if let data = defaults.data(forKey: "taskItemArray"){
+                var array = try JSONDecoder().decode([TaskItem].self, from: data)
+                
+                array.append(newTask)
+                
+                let encodedata = try JSONEncoder().encode(array)
+                
+                defaults.set(encodedata, forKey: "taskItemArray")
+            }
+            else{
+                let encodedata = try JSONEncoder().encode([newTask])
+                
+                defaults.set(encodedata, forKey: "taskItemArray")
+            }
+        }
+        catch{
+            print("unable to encode \(error)")
+        }
+        
+
     }
     
 

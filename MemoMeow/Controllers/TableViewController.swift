@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    var taskArray = ["first", "second"]
+    var arrayTask: [TaskItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +20,42 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let defaults = UserDefaults.standard
         
-        if let arrayItems = defaults.array(forKey: "taskArray") {
-            taskArray = arrayItems as! [String]
+        do{
+            if let data = defaults.data(forKey: "taskItemArray"){
+                var array = try JSONDecoder().decode([TaskItem].self, from: data)
+                
+                arrayTask = array
+            }
         }
-
-
+        catch{
+            print("unable to encode \(error)")
+        }
+        
+//        if let arrayItems = defaults.array(forKey: "taskArray") {
+//            arrayTask = arrayItems as! [String]
+//        }
+        
+        tableView.reloadData()
+    }
+    
+    func saveTasks() {
+        
+        let defaults = UserDefaults.standard
+        do{
+            let encodedata = try JSONEncoder().encode(arrayTask)
+            
+            defaults.set(encodedata, forKey: "taskItemArray")
+        }
+        catch {
+            print("unable to encode data \(error)")
+        }
+        
+//        defaults.set(arrayTask, forKey: "taskArray")
     }
 
     // MARK: - Table view data source
@@ -38,14 +67,14 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return taskArray.count
+        return arrayTask.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
+        let cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
         
-        cell.textLabel?.text = taskArray[indexPath.row]
-        cell.detailTextLabel?.text = taskArray[indexPath.row]
+        cell.textLabel?.text = arrayTask[indexPath.row].name
+        //cell.detailTextLabel?.text = arrayTask[indexPath.row]
 
         return cell
     }
@@ -58,17 +87,18 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            arrayTask.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            saveTasks()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
