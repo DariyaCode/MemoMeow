@@ -11,3 +11,4 @@ struct TaskItem: Codable {
     var name = ""
     var isComplete = false
 }
+

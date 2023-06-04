@@ -76,7 +76,21 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = arrayTask[indexPath.row].name
         //cell.detailTextLabel?.text = arrayTask[indexPath.row]
 
+        if arrayTask[indexPath.row].isComplete{
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        arrayTask[indexPath.row].isComplete.toggle()
+        
+        tableView.reloadData()
+        
+        saveTasks()
     }
 
     /*
